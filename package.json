@@ -7,6 +7,9 @@
   "dependencies": {
     "discord.io": "github:woor/discord.io#gateway_v6",
     "firebase": "^4.9.0",
-    "winston": "^2.4.0"
+    "winston": "^2.4.0",
+    "async": "^2.6.0",
+    "leagueapi": "^0.4.21",
+    "leaguejs": "^1.7.0"
   }
 }
