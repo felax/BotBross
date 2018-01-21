@@ -1,0 +1,12 @@
+{
+  "name": "BotBross",
+  "version": "0.1.0",
+  "description": "Bot to help users in every categories",
+  "main": "bot.js",
+  "author": "Charles, Victor, Felix",
+  "dependencies": {
+    "discord.io": "github:woor/discord.io#gateway_v6",
+    "firebase": "^4.9.0",
+    "winston": "^2.4.0"
+  }
+}
