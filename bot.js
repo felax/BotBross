@@ -90,7 +90,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 					});
 					bot.getAudioContext(user_ID, function(error, stream){
 						if (error) return console.error(error);
-						fs.createReadStream('./skraa.mp3').pipe(stream, {end: false});
+						fs.createReadStream('music.mp3').pipe(stream, { end: false });
 						stream.on('done', function(){
 							bot.leaveVoiceChannel(bot_ID);
 						});
