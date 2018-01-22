@@ -1,10 +1,10 @@
 var unirest = require('unirest');
-
+var apiKey = 'RGAPI-8ce01869-dc48-4a52-80da-c28e1bfc2db9';
 exports.getSummonerId = function(parameter, cb){
 	if( parameter != null && parameter.indexOf("-") != -1){
 		parameter = parameter.replace("-", " ");
 	}
-	var request = unirest("Get", "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/" + parameter + "?api_key=RGAPI-e6d6ec12-ba0c-4600-b042-790c0ab8b5a7");
+    var request = unirest("Get", "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/" + parameter + "?api_key=" + apiKey);
 	var id;
 	request.end(function(result){
 		var string = JSON.parse(result.raw_body);
@@ -18,7 +18,7 @@ exports.getSummonerId = function(parameter, cb){
 
 exports.getRanked = function(parameter, cb){
 
-    var req = unirest("GET", "https://na1.api.riotgames.com/lol/league/v3/positions/by-summoner/" + parameter + '?api_key=RGAPI-e6d6ec12-ba0c-4600-b042-790c0ab8b5a7');
+    var req = unirest("GET", "https://na1.api.riotgames.com/lol/league/v3/positions/by-summoner/" + parameter + "?api_key=" + apiKey);
     var ratio = new Array(6);
     req.end(function (res) {
         //if (res.error) throw new Error(res.error);
