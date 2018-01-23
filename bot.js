@@ -5,6 +5,7 @@ var weather = require('./weather.js');
 var fs = require('fs');
 var league = require('./league.JS');
 var sun = require("./sun.js");
+var rl = require("./rocketleague.js");
 const async = require('async');
 
 // Configure logger settings
@@ -28,7 +29,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
     // It will listen for messages that will start with `!`
 	var server_ID = bot.channels[channelID].guild_id;
 	var user_ID = bot.servers[server_ID].members[userID].voice_channel_id;
-	var bot_ID = bot.servers[server_ID].members['404322974414536704'].voice_channel_id;
+	var bot_ID = bot.servers[server_ID].members['404808825451970563'].voice_channel_id;
 	if (message.substring(0, 1) == '!') {
         var args = message.substring(1).split(' ');
         var cmd = args[0];
@@ -36,7 +37,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
        
         args = args.splice(1);
         switch(cmd) {
-            case 'bing':
+			case 'bing':
                 bot.sendMessage({
                     to: channelID,
                     message: '!bong'
@@ -204,6 +205,23 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     }
                     // results is now equal to ['one', 'two']
                 });
+			break;
+			case 'rl':
+				console.log("yo is this working?");
+				async.waterfall([
+					function(callback) {
+						rl.getPlayer(parameter, (stats) => {
+							console.log(stats);
+							callback(null, stats);
+						});
+					}
+				],
+				function(err, results) {
+					bot.sendMessage({
+						to: channelID,
+						message: results
+					});
+				});
 			break;
          }
      }

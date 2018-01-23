@@ -50,6 +50,8 @@ exports.getTemp = function(coords, cb){
             emoji = ':sunny:';
         } else if(str.weather[0].main == 'Mist'){
             emoji = ':cloud_rain:';
+        } else if(str.weather[0].main == 'Snow'){
+            emoji = ':cloud_snow:';
         }
 
         cb([str.main.temp, str.name, str.sys.country,str.wind.speed,direction,str.weather[0].main,str.main.humidity,emoji]);
