@@ -23,21 +23,21 @@ exports.getTemp = function(coords, cb){
         
         str = JSON.parse(result.raw_body);
         var direction;
-        if(str.wind.deg < 23 || str.wind.deg >= 337){
+        if(str.wind.deg < 23 && str.wind.deg >= 0 || str.wind.deg >= 337){
             direction = 'N';
-        } else if(str.wind.deg >= 23 || str.wind.deg < 68){
+        } else if(str.wind.deg >= 23 && str.wind.deg < 68){
             direction = 'NE';
-        } else if(str.wind.deg >= 68 || str.wind.deg < 113){
+        } else if(str.wind.deg >= 68 && str.wind.deg < 113){
             direction = 'E'
-        } else if(str.wind.deg >= 113 || str.wind.deg < 158){
+        } else if(str.wind.deg >= 113 && str.wind.deg < 158){
             direction = 'SE'
-        } else if(str.wind.deg >= 158 || str.wind.deg < 203){
+        } else if(str.wind.deg >= 158 && str.wind.deg < 203){
             direction = 'S'
-        } else if(str.wind.deg >= 203 || str.wind.deg < 248){
+        } else if(str.wind.deg >= 203 && str.wind.deg < 248){
             direction = 'SW'
-        } else if(str.wind.deg >= 248 || str.wind.deg < 293){
+        } else if(str.wind.deg >= 248 && str.wind.deg < 293){
             direction = 'W'
-        }   else if(str.wind.deg >= 293 || str.wind.deg < 337){
+        }   else if(str.wind.deg >= 293 && str.wind.deg < 337){
             direction = 'NW'
         }
 
