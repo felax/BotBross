@@ -82,7 +82,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 			case 'help':
 				bot.sendMessage({
 					to: channelID,
-					message: " !roll {range} \n!flip \n!reee \n!weather {city} \n!ranked {summoner_id} \n!bing \n!day {location} \n!rl {ranked; stats} {steamId} n!steam {played} {steamId}"
+					message: " !roll {range} \n!flip \n!reee \n!weather {city} \n!ranked {summoner_id} \n!bing \n!day {location} \n!rl {ranked; stats} {steamId} \n!steam {played} {steamId}"
 				});	
 			break;
 			case 'join':
@@ -225,10 +225,10 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 			break;
 			case 'steam':
 				steam.getPlayer(parameter, parameter2, (stats) => {
-					var msg = "";
+					var msg = "**__" + stats[1] + "__**\n\n";
 					if(stats != "Invalid entry"){
 						for(var i = 0; i < 3; i++){
-							msg += "**" + stats[i][0] + "**```Last 2 weeks: " + stats[i][1] + "Hrs\nAll time: " + stats[i][2] + "Hrs```";
+							msg += "**" + stats[0][i][0] + "**```Last 2 weeks: " + stats[0][i][1] + "Hrs\nAll time: " + stats[0][i][2] + "Hrs```";
 						}
 					} else {
 						msg = stats;
