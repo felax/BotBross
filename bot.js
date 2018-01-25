@@ -82,7 +82,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 			case 'help':
 				bot.sendMessage({
 					to: channelID,
-					message: " !roll {range} \n!flip \n!reee \n!weather {city} \n!ranked {summoner_id} \n!bing \n!day {location} \n!rl {ranked; stats} {steamId}"
+					message: " !roll {range} \n!flip \n!reee \n!weather {city} \n!ranked {summoner_id} \n!bing \n!day {location} \n!rl {ranked; stats} {steamId} n!steam {played} {steamId}"
 				});	
 			break;
 			case 'join':
