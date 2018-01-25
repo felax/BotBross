@@ -6,6 +6,7 @@ var fs = require('fs');
 var league = require('./league.JS');
 var sun = require("./sun.js");
 var rl = require("./rocketleague.js");
+var steam = require("./steam.js");
 const async = require('async');
 
 // Configure logger settings
@@ -221,6 +222,23 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 						message: results
 					});
 				});
+			break;
+			case 'steam':
+				steam.getPlayer(parameter, parameter2, (stats) => {
+					var msg = "";
+					if(stats != "Invalid entry"){
+						for(var i = 0; i < 3; i++){
+							msg += "**" + stats[i][0] + "**```Last 2 weeks: " + stats[i][1] + "Hrs\nAll time: " + stats[i][2] + "Hrs```";
+						}
+					} else {
+						msg = stats;
+					}
+					bot.sendMessage({
+						to: channelID,
+						message: msg
+					});
+				});
+				
 			break;
          }
      }
