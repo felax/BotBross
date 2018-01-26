@@ -12,9 +12,9 @@ exports.commands = function(bot, message, user, userID, channelID, evt){
     var parameter = args[1];
     var parameter2 = args[2];
 
-    // var server_ID = bot.channels[channelID].guild_id;
-    // var user_ID = bot.servers[server_ID].members[userID].voice_channel_id;
-    // var bot_ID = bot.servers[server_ID].members['404808825451970563'].voice_channel_id;
+    var server_ID = bot.channels[channelID].guild_id;
+    var user_ID = bot.servers[server_ID].members[userID].voice_channel_id;
+    var bot_ID = bot.servers[server_ID].members['404322974414536704'].voice_channel_id;
 
     args = args.splice(1);
     switch(cmd) {
