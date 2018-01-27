@@ -1,5 +1,5 @@
 var unirest = require('unirest');
-var apiKey = 'RGAPI-8ce01869-dc48-4a52-80da-c28e1bfc2db9';
+var apiKey = 'RGAPI-6732315b-0a11-4fda-ae3d-ed57715fa57e';
 exports.getSummonerId = function(parameter, cb){
 	if( parameter != null && parameter.indexOf("-") != -1){
 		parameter = parameter.replace("-", " ");
